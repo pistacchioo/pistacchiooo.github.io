@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>静静旅游笔记</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+  .navbar {
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+  .carousel-caption h3,
+ .carousel-caption p {
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+ }
+  #carousel-container {
+   margin-bottom: 100px;
+ }
+ #footer {
+  margin-bottom: -100px;
+}
+ #about {
+   margin-bottom: 100px;
+ }
+  .carousel-item img {
+    max-height: 850px;
+    object-fit: cover;
+  }
+  .carousel {
+    margin-top: 55px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6)
+  }
+  .carousel-item {
+      opacity: 0;
+      transition: opacity 0.1s ease;
+    }
+
+    .carousel-caption h3 {
+  font-size: 90px;
+}
+
+.carousel-caption p {
+  font-size: 30px;
+}
+    .carousel-item.active {
+      opacity: 1;
+    }
+
+    .image-container {
+    max-width: 300px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  .shadow {
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .grey-background {
+    background-color: #f0f0f0;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .smaller-image {
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+  }
+
+  .image-fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+  }
+
+  .image-fade-in.visible {
+    opacity: 1;
+  }
+
+    .project {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   text-align: center;
+ }
+ .project {
+   position: relative;
+ }
+
+ .project img {
+   display: block;
+   max-width: 100%;
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+ }
+
+ .project-details {
+   position: absolute;
+ }
+
+ .project-image {
+   width: 100%;
+   height: 300px;
+   object-fit: cover;
+   margin-bottom: 20px;
+ }
+
+ .project-title {
+   font-size: 35px;
+   margin-bottom: 15px;
+ }
+
+ .project-description {
+   font-size: 16px;
+   margin-bottom: 20px;
+ }
+
+ .scroll-effect {
+   opacity: 0;
+   transform: translateY(50px);
+   transition: opacity 0.5s ease, transform 0.5s ease;
+ }
+
+ .scroll-effect.show {
+   opacity: 1;
+   transform: translateY(0);
+ }
+
+.underline-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.underline-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.underline-link:hover::after {
+  transform: scaleX(1);
+}
+
+.project {
+  margin-bottom: 40px;
+}
+
+.project-content {
+  margin-bottom: 60px;
+}
+
+.footer {
+  background-color: #f8f9fa;
+}
+
+.footer-contact {
+  text-align: right;
+}
+
+.footer-bottom {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-bottom {
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+  .credits {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  </style>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="#">
+    <img src="17.jpg" alt="Logo" class="logo">
+  </a>
+  <div class="navbar-title">静静旅行笔记</div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#about">关于记者</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#projects">笔记</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#footer">联系方式</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <ol class="carousel-indicators">
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" onclick="goToSlide(0)"></li>
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" onclick="goToSlide(1)"></li>
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" onclick="goToSlide(2)"></li>
+    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" onclick="goToSlide(3)"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <a href="#project1">
+        <img src="1.jpg" class="d-block w-100" alt="Slide 1">
+        <div class="carousel-caption">
+          <h3>Switzerland</h3>
+          <p>人间仙境，瑞士之恋</p>
+        </div>
+      </a>
+      </div>
+      <div class="carousel-item">
+        <a href="#project2">
+          <img src="2.jpg" class="d-block w-100" alt="Slide 2">
+          <div class="carousel-caption">
+            <h3>France</h3>
+            <p>发现法国，感受千年风情</p>
+          </div>
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="#project3">
+          <img src="4.jpg" class="d-block w-100" alt="Slide 3">
+          <div class="carousel-caption">
+            <h3>Italy</h3>
+            <p>意大利风情，沉浸在浓郁的文化氛围中</p>
+          </div>
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="#project4">
+          <img src="5.jpg" class="d-block w-100" alt="Slide 2">
+          <div class="carousel-caption">
+            <h3>Spain</h3>
+            <p>西班牙之旅，迷失在梦幻与热情之中</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">上一个</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">下一个</span>
+  </a>
+    <div id="carousel-container">
+      </div>
+  </div>
+
+  <header id="about" class="jumbotron text-center">
+  <div class="container">
+    <div class="row grey-background">
+      <div class="col-md-12 title">
+        <h1>关于记者</h1>
+      </div>
+      <div class="col-md-4 mb-4 d-flex align-items-center justify-content-center">
+        <img src="11.jpg" alt="About Image" class="img-fluid rounded-corners shadow smaller-image image-fade-in">
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-sm-4">
+            <h4 class="fade-in">自我介绍</h4>
+            <p class="fade-in">名字：Sheila 静静</p>
+            <p class="fade-in">MBTI：ISFJ/ISTJ</p>
+            <p class="fade-in">星座：白羊座</p>
+            <p class="fade-in">ADer</p>
+          </div>
+          <div class="col-sm-4">
+            <h4 class="fade-in">我最擅长的</h4>
+            <p class="fade-in">旅游计划，跟着我可以无脑旅行</p>
+            <p class="fade-in">不会迷路，走行的GPS在此</p>
+            <p class="fade-in">发现新事物，关注新鲜事</p>
+            <p class="fade-in">不怕超过预算，超会计算</p>
+            <p class="fade-in">语言不是问题，本人是翻译器</p>
+          </div>
+          <div class="col-sm-4">
+            <h4 class="fade-in">旅游模式</h4>
+            <p class="fade-in">特种兵风</p>
+            <p class="fade-in">穷游风</p>
+            <p class="fade-in">度假风</p>
+            <p class="fade-in">探索自然风</p>
+            <p class="fade-in">都有！</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <h4 class="fade-in">Motto</h4>
+            <p class="fade-in">“不管多么繁忙都要出去看看。”</p>
+          </div>
+          <div class="col-sm-4">
+            <h4 class="fade-in">经验</h4>
+            <p class="fade-in">曾做过旅游攻略</p>
+            <p class="fade-in">拍摄过旅行vlog</p>
+          </div>
+          <div class="col-sm-4">
+            <h4 class="fade-in">未来目标</h4>
+            <p class="fade-in">发现世界更多奇妙的东西</p>
+                <p class="fade-in">尝试世界各地美食</p>
+                  <p class="fade-in">在成长的路上不断的学习</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <header id="about" class="jumbotron text-center">
+    <section id="projects" class="container">
+      <h2 class="text-center mb-5">旅游笔记</h2>
+
+      <div class="row">
+  <div id="project1" class="col-md-6 mb-4">
+    <div class="project d-flex align-items-center justify-content-end scroll-effect">
+      <img src="9.jpg" class="img-fluid project-image rounded" alt="Project 1">
+    </div>
+  </div>
+  <div class="col-md-6 mb-4 d-flex align-items-center">
+    <div class="project-content text-start scroll-effect">
+      <h5 class="card-title project-title">瑞士奇遇记</h5>
+      <p class="card-text project-description">当世界奇迹与自然之美交相辉映，您将沉浸在瑞士的魅力之中。</p>
+      <a href="index1.html" class="underline-link">了解更多</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+<div id="project2" class="col-md-6 mb-4 d-flex align-items-center justify-content-end">
+  <div class="project-content text-end scroll-effect">
+    <h5 class="card-title project-title">法国之旅</h5>
+    <p class="card-text project-description">在法国的怀抱中，感受古老城市的韵味与现代文化的融合。</p>
+    <a href="index2.html" class="underline-link">了解更多</a>
+  </div>
+</div>
+<div class="col-md-6 mb-4">
+  <div class="project d-flex align-items-center scroll-effect">
+    <img src="14.jpg" class="img-fluid project-image rounded" alt="Project 2">
+  </div>
+</div>
+</div>
+
+
+    <div class="row">
+      <div id="project3" class="col-md-6 mb-4">
+          <div class="project d-flex align-items-center scroll-effect">
+            <img src="8.jpg" class="img-fluid project-image rounded" alt="Project 3">
+          </div>
+      </div>
+        <div class="col-md-6 mb-4 d-flex align-items-center">
+          <div class="project-content text-start scroll-effect">
+            <h5 class="card-title project-title">意大利风情</h5>
+            <p class="card-text project-description">探索意大利的美食宝藏，品味独特的地中海风情。</p>
+            <a href="index1.html" class="underline-link">了解更多</a>
+          </div>
+        </div>
+      </div>
+
+    <div class="row">
+    <div id="project4" class="col-md-6 mb-4 d-flex align-items-center justify-content-end">
+      <div class="project-content text-end scroll-effect">
+        <h5 class="card-title project-title">西班牙传奇</h5>
+        <p class="card-text project-description">阳光海岸，尽情享受热情与美味。</p>
+        <a href="index4.html" class="underline-link">了解更多</a>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="project d-flex align-items-center scroll-effect">
+        <img src="14.jpg" class="img-fluid project-image rounded" alt="Project 4">
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Activate Carousel
+        $("#carouselExampleIndicators").carousel();
+
+        // Enable Carousel Indicators
+        $(".carousel-indicators li").click(function(){
+          $(".carousel-indicators li").removeClass("active");
+          $(this).addClass("active");
+        });
+
+        // Enable Carousel Controls
+        $(".carousel-control-prev").click(function(){
+          $("#carouselExampleIndicators").carousel("prev");
+        });
+        $(".carousel-control-next").click(function(){
+          $("#carouselExampleIndicators").carousel("next");
+        });
+      });
+
+      $(document).ready(function() {
+
+            $("#carouselExampleIndicators").on("slide.bs.carousel", function(e) {
+              var currentSlide = $(e.relatedTarget);
+              var targetSlide = $(e.target).find(".carousel-item").eq(e.to);
+
+              currentSlide.removeClass("active");
+              targetSlide.addClass("active");
+            });
+          });
+
+      window.addEventListener('scroll', function() {
+  var scrollElements = document.querySelectorAll('.scroll-effect');
+  for (var i = 0; i < scrollElements.length; i++) {
+    var element = scrollElements[i];
+    var position = element.getBoundingClientRect().top;
+    var windowHeight = window.innerHeight;
+
+    if (position < windowHeight - 100) {
+      element.classList.add('show');
+    }
+  }
+});
+$(window).scroll(function() {
+  $('.fade-in').each(function() {
+    var position = $(this).offset().top;
+    var scrollPosition = $(window).scrollTop();
+    var windowHeight = $(window).height();
+
+    if (scrollPosition > position - windowHeight + 200) {
+      $(this).addClass('visible');
+    }
+  });
+
+  $('.image-fade-in').each(function() {
+    var position = $(this).offset().top;
+    var scrollPosition = $(window).scrollTop();
+    var windowHeight = $(window).height();
+
+    if (scrollPosition > position - windowHeight + 200) {
+      $(this).addClass('visible');
+    }
+  });
+});
+function goToSlide(slideIndex) {
+      var carousel = new bootstrap.Carousel(document.querySelector('#carouselExampleIndicators'));
+      carousel.to(slideIndex);
+    }
+</script>
+<footer id="footer" class="footer">
+  <div class="container footer-top">
+    <div class="row gy-4">
+      <div class="col-lg-5 col-md-12 footer-about text-start">
+        <h4 class="text-start">静静笔记</h4>
+        <p class="text-start">感谢大家的观看！不要错过新的旅游帖子！</p>
+        <div class="social-links d-flex mt-4 justify-content-start">
+          <a href=""><i class="bi bi-twitter"></i></a>
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-12 d-flex align-items-end justify-content-between">
+        <div class="credits text-center">
+          <p>&copy; <span>Sheila</span> <strong class="px-1">All Rights Reserved</strong></p>
+          <p><a>Designed by Sheila</a></p>
+        </div>
+        <div class="credits text-end">
+          <h4>联系我们</h4>
+          <p>中国传媒大学</p>
+          <p>朝阳区，北京</p>
+          <p>中国</p>
+          <p class="mt-4"><strong>电话:</strong> <span>+13222222222</span></p>
+          <p><strong>邮件:</strong> <span>sheila@example.com</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
